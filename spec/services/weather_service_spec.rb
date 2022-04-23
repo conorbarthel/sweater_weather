@@ -10,7 +10,7 @@ RSpec.describe WeatherService do
   end
   describe '#get_weather' do
     it 'will return weather JSON', :vcr do
-      weather = WeatherService.get_weather(39.738453, -104.984853)
+      weather = WeatherService.get_weather(39.7385, -104.9849)
       expect(weather).to be_a Hash
       expect(weather[:current]).to be_a Hash
       expect(weather[:current][:weather]).to be_a Array
@@ -27,15 +27,14 @@ RSpec.describe WeatherService do
                                             :visibility,
                                             :weather)
       expect(weather[:current][:weather].first).to include(:description, :icon)
-      expect(weather[:hourly].first).to include(:datetime,
-                                                :temperature,
+      expect(weather[:hourly].first).to include(:dt,
+                                                :temp,
                                                 :weather)
       expect(weather[:hourly].first[:weather].first).to include(:description, :icon)
-      expect(weather[:daily].first).to include(:datetime,
+      expect(weather[:daily].first).to include(:dt,
                                                 :sunrise,
                                                 :sunset,
-                                                :max_temp,
-                                                :min_temp,
+                                                :temp,
                                                 :weather)
       expect(weather[:daily].first[:weather].first).to include(:description, :icon)
     end
