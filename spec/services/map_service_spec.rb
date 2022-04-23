@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe MapService do
+  describe '#conn' do
+    it "returns json response" do
+      response = MapService.conn
+
+      expect(response).to be_a Faraday::Connection
+    end
+  end
   describe '#get_coords' do
     it 'will return JSON of a location', :vcr do
       map_details = MapService.get_coords('Denver,CO')
@@ -13,11 +20,4 @@ RSpec.describe MapService do
       expect(map_details[:results].first[:locations].first[:latLng]).to include(:lat, :lng)
     end
   end
-  # describe 'one charity' do
-  #   it 'will return one charity given an EIN', :vcr do
-  #     charity = MapService.one_charity(270823236)
-  #     expect(charity).to be_a Hash
-  #     expect(charity).to include(:charityNavigatorURL, :mission, :charityName, :ein, :irsClassification)
-  #   end
-  # end
 end
