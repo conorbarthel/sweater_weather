@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-Rspec.describe Coordinates do
+RSpec.describe Coord do
   it "can make a coordinates object" do
     input = {
       lat: 39.125,

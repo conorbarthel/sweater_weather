@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-Rspec.describe 'weather' do
+RSpec.describe Weather do
   it "can make a weather object" do
-    
+
   end
 end
