@@ -10,12 +10,12 @@ RSpec.describe WeatherFacade do
     it 'will return hourly weather in objects' do
       hourly_weather = WeatherFacade.hourly_weather(39.7385, 104.984853)
 
-      expect(hourly_weather).to be_a HourlyWeather
+      expect(hourly_weather.first).to be_a HourlyWeather
     end
     it 'will return daily weather in objects' do
       daily_weather = WeatherFacade.daily_weather(39.7385, 104.984853)
 
-      expect(daily_weather).to be_a DailyWeather
+      expect(daily_weather.first).to be_a DailyWeather
     end
   end
 end
