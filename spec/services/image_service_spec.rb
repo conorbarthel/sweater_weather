@@ -8,9 +8,9 @@ RSpec.describe ImageService do
       expect(response).to be_a Faraday::Connection
     end
   end
-  describe '#get_coords' do
+  describe '#get_image' do
     it 'will return JSON of a image', :vcr do
-      image_response = ImageService.('denver')
+      image_response = ImageService.get_image('denver')
       expect(image_response).to be_a Hash
       expect(image_response[:results]).to be_a Array
       expect(image_response[:results].first).to include(:urls, :alt_description, :user)
