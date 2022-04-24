@@ -19,7 +19,7 @@ RSpec.describe DailyWeather do
     }
 
     current_weather = DailyWeather.new(data)
-    expect(current_weather.datetime).to eq("2022-04-22")
+    expect(current_weather.date).to eq("2022-04-22")
     expect(current_weather.sunrise).to eq("2022-04-22 06:12:02 -0600")
     expect(current_weather.sunset).to eq("2022-04-22 19:44:26 -0600")
     expect(current_weather.max_temp).to eq(291.81)
