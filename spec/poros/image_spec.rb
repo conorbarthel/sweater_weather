@@ -1,4 +1,4 @@
-equire 'rails_helper'
+require 'rails_helper'
 
 RSpec.describe Image do
   it "is an object that holds background image info" do
@@ -14,7 +14,7 @@ RSpec.describe Image do
         }
       }
     }
-    image = Forecast.new(current_weather, hourly_weather, daily_weather)
+    image = Image.new(data)
     expect(image.id).to eq(nil)
     expect(image.type).to eq("image")
     expect(image.photo_url).to eq("https://images.unsplash.com/photo-1573297627466-6bed413a43f1?crop=entropy&cs=srgb&fm=jpg&ixid=MnwzMjI0MDN8MHwxfHNlYXJjaHwxfHxkZW52ZXJ8ZW58MHx8fHwxNjUwODMzODY2&ixlib=rb-1.2.1&q=85")
