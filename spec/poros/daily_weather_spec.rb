@@ -22,8 +22,8 @@ RSpec.describe DailyWeather do
     expect(current_weather.date).to eq("2022-04-22")
     expect(current_weather.sunrise).to eq("2022-04-22 06:12:02 -0600")
     expect(current_weather.sunset).to eq("2022-04-22 19:44:26 -0600")
-    expect(current_weather.max_temp).to eq(291.81)
-    expect(current_weather.min_temp).to eq(250.41)
+    expect(current_weather.max_temp).to eq(65.6)
+    expect(current_weather.min_temp).to eq(-8.9)
     expect(current_weather.conditions).to eq("overcast clouds")
     expect(current_weather.icon).to eq("04d")
   end
