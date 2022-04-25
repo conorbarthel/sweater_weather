@@ -8,7 +8,6 @@ describe "munchies API" do
 
     munchie_json = JSON.parse(response.body, symbolize_names: true)
     munchie = munchie_json[:data]
-    binding.pry
     expect(munchie).to have_key(:id)
     expect(munchie[:id]).to eq(nil)
 
@@ -16,8 +15,10 @@ describe "munchies API" do
     expect(munchie[:type]).to eq('munchie')
 
     expect(munchie[:attributes]).to have_key(:destination_city)
+    expect(munchie[:attributes][:destination_city]).to eq("pueblo,co")
 
     expect(munchie[:attributes]).to have_key(:travel_time)
+    expect(munchie[:attributes][:travel_time]).to eq("01 hours 45 min")
 
     expect(munchie[:attributes]).to have_key(:forecast)
     expect(munchie[:attributes][:forecast]).to be_a(Hash)
