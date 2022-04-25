@@ -8,10 +8,10 @@ RSpec.describe YelpService do
       expect(response).to be_a Faraday::Connection
     end
   end
-  
+
   describe '#get_restaurant' do
     it 'will return JSON of a restaurant', :vcr do
-      restaurant_details = YelpService.get_coords('Denver,CO')
+      restaurant_details = YelpService.get_restaurant('pueblo,co', 'chinese')
       expect(restaurant_details).to be_a Hash
       expect(restaurant_details[:businesses]).to be_a Array
       expect(restaurant_details[:businesses].first).to be_a Hash
