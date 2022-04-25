@@ -1,4 +1,8 @@
 class MunchieSerializer
   include JSONAPI::Serializer
-  attributes 
+
+  set_id :id
+  set_type 'munchie'
+
+  attributes:destination_city, :travel_time, :forecast, :restaurant
 end
