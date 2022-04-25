@@ -1,8 +1,9 @@
+Faraday::Request::Authorization
 class YelpService
   def self.conn
     Faraday.new("https://api.yelp.com") do |faraday|
       faraday.request :authorization, 'Bearer', ENV['yelp_api']
-      faraday.adapter Faraday.default_adapter
+      # faraday.adapter Faraday.default_adapter
     end
   end
 
