@@ -33,10 +33,10 @@ RSpec.describe Munchie do
     expect(munchie.id).to eq(nil)
     expect(munchie.type).to eq("munchie")
     expect(munchie.destination_city).to eq("Pueblo,CO")
-    expect(munchie.travel_time).to eq("1 hours 45 min")
+    expect(munchie.travel_time).to eq("01 hours 45 min")
     expect(munchie.forecast).to be_a Hash
     expect(munchie.forecast[:summary]).to eq("overcast clouds")
-    expect(munchie.forecast[:temperature]).to eq(250.41)
+    expect(munchie.forecast[:temperature]).to eq(-8.9)
     expect(munchie.restaurant).to be_a Hash
     expect(munchie.restaurant[:name]).to eq("Fortune Wok to Table")
     expect(munchie.restaurant[:address]).to eq("2817 E 3rd Ave, Denver, CO 80206")

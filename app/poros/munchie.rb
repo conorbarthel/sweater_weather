@@ -13,7 +13,16 @@ class Munchie
     }
     @restaurant = {
       name: restaurant_data[:businesses].first[:name],
-      address: restaurant_data[:businesses].first[:location][:display_address].join
+      address: address_convert(restaurant_data[:businesses].first[:location][:display_address])
     }
+  end
+
+  def convert_time(time)
+    chunks = time.split(":")
+    formatted = "#{chunks[0]} hours #{chunks[1]} min"
+  end
+
+  def address_convert(address)
+    formatted = "#{address[0]}, #{address[1]}"
   end
 end
