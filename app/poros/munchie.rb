@@ -23,6 +23,6 @@ class Munchie
   end
 
   def address_convert(address)
-    formatted = "#{address[0]}, #{address[1]}"
+    formatted = "#{address[0]}, #{address[1]}#{address[2]}"
   end
 end
