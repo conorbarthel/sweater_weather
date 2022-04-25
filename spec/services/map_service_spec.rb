@@ -24,8 +24,8 @@ RSpec.describe MapService do
     it 'will return JSON of a route', :vcr do
       map_details = MapService.get_route('Denver,CO', 'Pueblo,CO')
       expect(map_details).to be_a Hash
-      expect(map_details[:route]).to be_a Hasah
-      expect(map_details[:route]).to include([:formattedTime])
+      expect(map_details[:route]).to be_a Hash
+      expect(map_details[:route]).to include(:formattedTime)
     end
   end
 end
