@@ -8,6 +8,7 @@ describe "munchies API" do
 
     munchie_json = JSON.parse(response.body, symbolize_names: true)
     munchie = munchie_json[:data]
+
     expect(munchie).to have_key(:id)
     expect(munchie[:id]).to eq(nil)
 
@@ -23,9 +24,13 @@ describe "munchies API" do
     expect(munchie[:attributes]).to have_key(:forecast)
     expect(munchie[:attributes][:forecast]).to be_a(Hash)
     expect(munchie[:attributes][:forecast]).to have_key(:temperature)
+    expect(munchie[:attributes][:forecast][:temperature]).to eq(49.4)
     expect(munchie[:attributes][:forecast]).to have_key(:summary)
+    expect(munchie[:attributes][:forecast][:summary]).to eq("few clouds")
     expect(munchie[:attributes][:restaurant]).to be_a(Hash)
     expect(munchie[:attributes][:restaurant]).to have_key(:name)
+    expect(munchie[:attributes][:restaurant][:name]).to eq("Wonderful Bistro")
     expect(munchie[:attributes][:restaurant]).to have_key(:address)
+    expect(munchie[:attributes][:restaurant][:address]).to eq("4602 N Elizabeth St, Ste 120Pueblo, CO 81008")
   end
 end
