@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       resources :munchies, only: [:index]
       resources :users, only: [:create]
       resources :sessions, only: [:create]
-      resources :roadtrip, only: [:create]
+      resources :roadtrips, only: [:create]
     end
   end
 end

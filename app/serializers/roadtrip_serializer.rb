@@ -1,4 +1,4 @@
-class UserSerializer
+class RoadtripSerializer
   include JSONAPI::Serializer
 
   set_id :id
