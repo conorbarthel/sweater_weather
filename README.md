@@ -1,24 +1,31 @@
-# README
+# Sweater Weather
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Back end repository designed to consume several APIs and currate data from them to expose a new API for a potental front end application. Functionality includes requests to get current, daily, and hourly weather. The weather at a destionation when a user will arrive from their roadtrip. Where to eat when a user arrives at there destination by requested food. Ability to create new users on the back end and store session data. 
 
-Things you may want to cover:
+Set up:
 
-* Ruby version
+* Pull Down and run `bundle install`, `rails db:{create,migrate}` and `bundle exec figaro install`
 
-* System dependencies
+* Requires api keys in appication.yml that can be retrived from:
+* https://openweathermap.org/api/one-call-api
+* https://developer.mapquest.com/documentation/geocoding-api/
+* https://unsplash.com/developers
+* https://www.yelp.com/developers/documentation/v3/get_started
 
-* Configuration
+* `bunlde exec rspec` to run test suite
 
-* Database creation
+* Ruby version 2.7.2 Rails Version 5.2.6
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Gems 
+`   gem 'bcrypt'
+    gem 'figaro'
+    gem 'faraday'
+    gem 'rspec-rails'
+    gem 'pry'
+    gem 'simplecov'
+    gem 'factory_bot_rails'
+    gem 'faker'
+    gem 'shoulda-matchers'
+    gem 'vcr'
+    gem 'webmock'`
+    
