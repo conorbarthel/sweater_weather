@@ -2,18 +2,17 @@ require 'rails_helper'
 
 RSpec.describe 'Session create' do
   it 'happy path will create a new session', :vcr do
-    User.create!(email:"whatever@example.com", password: '1', password_confirmation: '1')
+    User.create!(email:"whatever@example.com", password: 'password', password_confirmation: 'password')
     request_body = {
                       email: "whatever@example.com",
                       password: "password",
                  }
     post '/api/v1/sessions', params: request_body
 
-    expect(response.status).to eq(201)
+    expect(response.status).to eq(200)
     response_data = JSON.parse(response.body, symbolize_names: true)
     response = response_data[:data]
 
-    expect(User.count).to eq(user_count + 1)
     expect(response[:type]).to eq('users')
     expect(response[:id]).to_not eq(nil)
     expect(response[:attributes]).to include(:email, :api_key)
@@ -23,7 +22,7 @@ RSpec.describe 'Session create' do
     expect(response[:attributes]).to_not include(:password)
   end
   it "sad path will not create a session if password is wrong", :vcr do
-    User.create!(email:"whatever@example.com", password: '1', password_confirmation: '1')
+    User.create!(email:"whatever@example.com", password: 'Password', password_confirmation: 'Password')
     request_body = {
                       email: "whatever@example.com",
                       password: "not_pass"
