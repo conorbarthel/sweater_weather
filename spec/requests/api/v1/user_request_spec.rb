@@ -23,7 +23,7 @@ RSpec.describe 'User create' do
     expect(response).to_not include(:password)
     expect(response[:attributes]).to_not include(:password)
   end
-  it "sad path will not create a user" do
+  it "sad path will not create a user if passwords don't match", :vcr do
     user_count = User.count
     request_body = {
                       email: "whatever@example.com",
@@ -36,5 +36,19 @@ RSpec.describe 'User create' do
     expect(parsed[:status]).to eq(400)
     expect(User.count).to eq(user_count)
     expect(parsed[:error]).to eq("Passwords Don't Match")
+  end
+  it "sad path will not create a user if user exists", :vcr do
+    User.create!(email:"whatever@example.com", password: '1', password_confirmation: '1')
+    request_body = {
+                      email: "whatever@example.com",
+                      password: "password",
+                      password_confirmation: "password"
+                 }
+
+    post '/api/v1/users', params: request_body
+    parsed = JSON.parse(response.body, symbolize_names: true)
+
+    expect(parsed[:status]).to eq(400)
+    expect(parsed[:error]).to eq("Account Already Exists")
   end
 end
