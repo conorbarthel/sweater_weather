@@ -5,16 +5,31 @@ RSpec.describe RoadTrip do
     destination_data = {
                           route: {
                             formattedTime: "01:45:23",
-                          }
+                          },
+                          locations: [
+                            { adminArea5: "Denver", adminArea3: "CO"},
+                            { adminArea5: "Estes Park", adminArea3: "CO" }
+                          ]
                         }
     forecast_data = {
-                      temp: 250.41,
-                      weather: [
-                                  {
-                                    description: "overcast clouds"
-                                  }
-                                ]
-                      }
+                      hourly: [
+                        { temp: 283.17,
+                          weather: [
+                            { description: "scattered clouds" }
+                          ]
+                        },
+                        { temp: 285.9,
+                          weather: [
+                            { description: "scattered clouds" }
+                          ]
+                        },
+                        { temp: 287.9,
+                          weather: [
+                            { description: "sunny" }
+                          ]
+                        }
+                      ]
+                    }
     destination = "Pueblo,CO"
     roadtrip = RoadTrip.new(destination_data, forecast_data)
     expect(roadtrip.id).to eq(nil)
@@ -23,7 +38,7 @@ RSpec.describe RoadTrip do
     expect(roadtrip.end_city).to eq("Estes Park, CO")
     expect(roadtrip.travel_time).to eq("01 hours 45 min")
     expect(roadtrip.weather_at_eta).to be_a Hash
-    expect(roadtrip.forecast[:temperature]).to eq(-8.9)
-    expect(roadtrip.forecast[:conditions]).to eq("overcast clouds")
+    expect(roadtrip.weather_at_eta[:temperature]).to eq(58.6)
+    expect(roadtrip.weather_at_eta[:conditions]).to eq("sunny")
   end
 end
