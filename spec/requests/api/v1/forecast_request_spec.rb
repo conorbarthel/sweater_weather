@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 describe "Forecast API" do
-  it "sends a weather forecast", :vcr do
+  it "happy path sends a weather forecast", :vcr do
     get '/api/v1/forecast?location=denver,co'
 
     expect(response.status).to eq(200)
 
     forecast_json = JSON.parse(response.body, symbolize_names: true)
     forecast = forecast_json[:data]
-    
+
     expect(forecast).to have_key(:id)
     expect(forecast[:id]).to eq(nil)
 
@@ -25,5 +25,8 @@ describe "Forecast API" do
     expect(forecast[:attributes]).to have_key(:hourly_weather)
     expect(forecast[:attributes][:hourly_weather]).to be_a(Array)
     expect(forecast[:attributes][:hourly_weather].count).to eq(8)
+
+    expect(forecast[:attributes]).to_not have_key(:pressure)
+    expect(forecast[:attributes]).to_not have_key(:minutely)
   end
 end
