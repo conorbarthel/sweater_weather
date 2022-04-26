@@ -5,11 +5,11 @@ RSpec.describe RoadTrip do
     destination_data = {
                           route: {
                             formattedTime: "01:45:23",
-                          },
-                          locations: [
-                            { adminArea5: "Denver", adminArea3: "CO"},
-                            { adminArea5: "Estes Park", adminArea3: "CO" }
-                          ]
+                            locations: [
+                              { adminArea5: "Denver", adminArea3: "CO"},
+                              { adminArea5: "Estes Park", adminArea3: "CO" }
+                            ]
+                          }
                         }
     forecast_data = {
                       hourly: [
