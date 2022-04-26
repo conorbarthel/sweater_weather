@@ -17,11 +17,6 @@ class Munchie
     }
   end
 
-  def convert_time(time)
-    chunks = time.split(":")
-    formatted = "#{chunks[0]} hours #{chunks[1]} min"
-  end
-
   def address_convert(address)
     formatted = "#{address[0]}, #{address[1]}#{address[2]}"
   end

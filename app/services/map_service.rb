@@ -10,8 +10,8 @@ class MapService
     json = JSON.parse(response.body, symbolize_names: true)
   end
 
-  def self.get_route(to, from)
-    response = conn.get("/directions/v2/route?to=#{to}&from=#{from}")
+  def self.get_route(from, to)
+    response = conn.get("/directions/v2/route?from=#{from}&to=#{to}")
     json = JSON.parse(response.body, symbolize_names: true)
   end
 end
