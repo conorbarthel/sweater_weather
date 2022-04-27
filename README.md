@@ -17,7 +17,7 @@ Set up:
 * Ruby version 2.7.2 Rails Version 5.2.6
 
 * Gems 
-`   gem 'bcrypt'
+``` gem 'bcrypt'
     gem 'figaro'
     gem 'faraday'
     gem 'rspec-rails'
@@ -27,5 +27,6 @@ Set up:
     gem 'faker'
     gem 'shoulda-matchers'
     gem 'vcr'
-    gem 'webmock'`
+    gem 'webmock'```
     
+* End Points and Instructions
