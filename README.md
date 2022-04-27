@@ -31,4 +31,12 @@ Set up:
  ```
  ## Endpoints
  
-    
+ Get Forecast
+ ex: http://localhost:3000/api/v1/forecast?location=denver,co
+ Takes a param of location, this should be for the location that the requester wants the weather for. Returns Json for current, daily and hourly weather.
+ State is not required, but will yeild more accurate results. 
+ 
+ Get Backround Image
+ ex: http://localhost:3000/api/v1/backgrounds?location=denver
+ Takes a param of location, best results will be city only not including the state. Other suggestions for location params could be denverlandscapes or    denvercity. 
+ 
