@@ -27,6 +27,8 @@ Set up:
     gem 'faker'
     gem 'shoulda-matchers'
     gem 'vcr'
-    gem 'webmock'```
+    gem 'webmock'
+ ```
+ ## Endpoints
+ 
     
-* End Points and Instructions
