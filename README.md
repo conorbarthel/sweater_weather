@@ -30,6 +30,7 @@ Set up:
     gem 'webmock'
  ```
  ## Endpoints
+ For all requests run `rails s` in the terminal so that the Back End is listening 
  
  Get Forecast
  ex: http://localhost:3000/api/v1/forecast?location=denver,co
@@ -38,5 +39,20 @@ Set up:
  
  Get Backround Image
  ex: http://localhost:3000/api/v1/backgrounds?location=denver
- Takes a param of location, best results will be city only not including the state. Other suggestions for location params could be denverlandscapes or    denvercity. 
+ Takes a param of location, best results will be city only not including the state. Other suggestions for location params could be denver,landscapes or    denver,city. 
  
+ Get Munchies 
+ ex: http://localhost:3000/api/v1/munchies?start=denver,co&destination=pueblo,co&food=chinese
+ Takes params of start for starting location, destination for ending location and food for what food a user wants to search for. This will return a json response for food at the destination location.
+ 
+ Post User
+ ex: http://localhost:3000/api/v1/users
+ Posts a user to the back end database. Reqest params must be passed in the body not in the header. Requires Email, password and password confirmation. Will return a response with that users email and an api_key for that user. 
+ 
+ Post Session
+ ex: http://localhost:3000/api/v1/sessions
+ Posts a session for a user. Reqest params must be passed in the body not in the header. Requires Email, and password. User must exist in database. Returns a response with user api_key and email. 
+ 
+ Post Roadtrip 
+ ex: http://localhost:3000/api/v1/roadtrips. 
+ Posts a roadtrip. Reqest params must be passed in the body not in the header. Requires origin, destination and api_key as Json in the body of the requset. Will return details on the roadtrip and the weather for that roadtrip for when the user will arrive.
